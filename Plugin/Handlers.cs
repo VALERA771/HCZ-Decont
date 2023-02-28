@@ -96,7 +96,7 @@ namespace HCZDecont
             {
                 foreach (Player player in Player.List)
                 {
-                    if (player.Zone == ZoneType.HeavyContainment)
+                    if (player.Zone == ZoneType.Surface)
                     {
                         player.EnableEffect(EffectType.Decontaminating, duration: 2400f);
                     }
@@ -148,7 +148,7 @@ namespace HCZDecont
             {
                 foreach (Player player in Player.List)
                 {
-                    if (player.Zone == ZoneType.HeavyContainment)
+                    if (player.Zone == ZoneType.Entrance)
                     {
                         player.EnableEffect(EffectType.Decontaminating, duration: 2400f);
                     }
