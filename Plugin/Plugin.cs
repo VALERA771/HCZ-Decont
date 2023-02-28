@@ -8,8 +8,8 @@ namespace HCZDecont
         public override string Name => "Heavy Contaiment Zone Decontamination";
         public override string Prefix => "HCZDecont";
         public override string Author => "VALERA771#1471";
-        public override Version Version => new Version(1, 0, 0);
-        public override Version RequiredExiledVersion => new Version(5, 3, 0);
+        public override Version Version => new Version(2, 0, 0);
+        public override Version RequiredExiledVersion => new Version(6, 0, 0);
 
         private Handlers han;
 
