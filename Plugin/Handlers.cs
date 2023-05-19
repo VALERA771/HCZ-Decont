@@ -1,4 +1,5 @@
-﻿using Exiled.API.Features;
+﻿using System.Linq;
+using Exiled.API.Features;
 using Exiled.API.Enums;
 using MEC;
 
@@ -43,12 +44,9 @@ namespace HCZDecont
 
             Timing.CallDelayed(300, () =>
             {
-                foreach (Player player in Player.List)
+                foreach (Player player in Player.List.Where(x => x.Zone == ZoneType.HeavyContainment))
                 {
-                    if (player.Zone == ZoneType.HeavyContainment)
-                    {
-                        player.EnableEffect(EffectType.Decontaminating, duration: 2400f);
-                    }
+                    player.EnableEffect(EffectType.Decontaminating, duration: 2400f);
                 }
 
                 if (Plugin.Instance.Config.LockAllHcz)
@@ -61,8 +59,8 @@ namespace HCZDecont
                     Door.Get(DoorType.CheckpointEzHczB).Lock(100000f, DoorLockType.DecontLockdown);
                 }
 
-                if (Plugin.Instance.Config.CassieOnHcz)  Cassie.Message(Plugin.Instance.Config.CassieDecontEndHcz);
-
+                if (Plugin.Instance.Config.CassieOnHcz) 
+                    Cassie.Message(Plugin.Instance.Config.CassieDecontEndHcz);
             });
         }
 
